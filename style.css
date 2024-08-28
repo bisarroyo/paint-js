@@ -1,0 +1,117 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  height: 100dvh;
+  width: 100dvw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  display: grid;
+  grid-template-areas:
+    'header header header'
+    'aside main main'
+    'footer footer footer';
+  max-width: 1000px;
+  margin-top: 50px;
+  padding: 10px;
+}
+
+header {
+  grid-area: header;
+  padding: 10px 5px;
+  background-color: silver;
+  button {
+    background-color: transparent;
+    border: 0;
+    padding: 5px 10px;
+    &:hover {
+      box-shadow: 1px 1px black, inset -1px -1px gray, inset 1px 1px white;
+    }
+  }
+}
+aside {
+  grid-area: aside;
+  background-color: silver;
+  padding-top: 10px;
+  nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    gap: 1px;
+    button {
+      width: 30px;
+      height: 30px;
+      background: #bdbdbd;
+      border: 1.5px solid #eee;
+      border-right-color: #000;
+      border-bottom-color: #000;
+      background-size: 24px;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      &:hover {
+        box-shadow: 1px 1px black, inset -1px -1px gray, inset 1px 1px white;
+      }
+
+      &.active {
+        background-color: #eee;
+        border-color: #000;
+        border-right-color: #eee;
+        border-bottom-color: #eee;
+      }
+      &[disabled] {
+        pointer-events: none;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+main {
+  grid-area: main;
+  background-color: #000000;
+  padding: 10px;
+}
+footer {
+  grid-area: footer;
+  background-color: silver;
+  padding: 10px 5px;
+}
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+canvas {
+  background: #fff;
+}
+
+#draw-btn {
+  background-image: url(./icons/brush.png);
+}
+#erase-btn {
+  background-image: url(./icons/eraser.png);
+}
+#rectangle-btn {
+  background-image: url(./icons/rectangle.png);
+}
+#ellipse-btn {
+  background-image: url(./icons/oval.png);
+}
+#picker-btn {
+  background-image: url(./icons/color-picker.png);
+}
+#clear-btn {
+  background-image: url(./icons/trash.png);
+}

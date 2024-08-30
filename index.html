@@ -26,14 +26,21 @@
           <button id="ellipse-btn" title="Elipse"></button>
           <button disabled id="picker-btn" title="Capturar Color"></button>
           <button id="clear-btn" title="Limpiar dibujo"></button>
+          <button id="text-btn" title="Añadir texto"></button>
         </nav>
       </aside>
       <main>
         <canvas id="canvas" width="600" height="500"></canvas>
       </main>
       <footer>
-        <input type="color" id="color-picker" value="#000000" />
-        <div class="colors"></div>
+        <div class="color-section">
+          <input type="color" id="color-picker" value="#000000" />
+          <div class="colors"></div>
+        </div>
+        <div class="edits-section">
+          <button id="undo-btn" disabled></button>
+          <button id="redo-btn" disabled></button>
+        </div>
       </footer>
     </div>
   </body>

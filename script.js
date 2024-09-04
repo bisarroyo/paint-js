@@ -88,8 +88,8 @@ $redoBtn.addEventListener('click', redo)
 
 // methods
 
-function setDisabled(element, disabled) {
-  if (disabled) {
+function setDisabled(element) {
+  if (lastEdits.length > 0) {
     element.removeAttribute('disabled')
   } else {
     element.setAttribute('disabled', true)
@@ -102,7 +102,7 @@ function saveEdits() {
     lastEdits = lastEdits.slice(0, actualEditing)
   }
   lastEdits[actualEditing] = imageData
-  setDisabled($undoBtn, actualEditing === 0)
+  setDisabled($undoBtn)
   console.log(lastEdits)
   actualEditing++
 }
@@ -164,8 +164,9 @@ function draw(event) {
   }
   if (mode === MODES.ELLIPSE) {
     ctx.putImageData(imageData, 0, 0)
+    let width = offsetX - startX
     ctx.beginPath()
-    ctx.arc(100, 75, 50, 0, 2 * Math.PI)
+    ctx.arc(offsetX, offsetY, width, 0, 2 * Math.PI)
     ctx.stroke()
   }
 }
